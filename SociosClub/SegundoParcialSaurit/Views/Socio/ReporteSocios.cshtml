@@ -1,0 +1,44 @@
+﻿@model IEnumerable<SegundoParcialSaurit.ViewModels.DeporteItemVM>
+@{
+    ViewBag.Title = "ReporteSocios";
+}
+
+<div class="row">
+    <div class="col-sm-12">
+        <div>
+            <h4>Cantidad de socios por Deporte</h4>
+
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-lg-6">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr>
+                    @*<th class="text-center"> Id</th>*@
+                    <th class="text-center"> Deporte</th>
+                    <th class="text-center"> Cantidad De Socios</th>
+                    
+
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var deporteItemVM in Model)
+                {
+                    <tr class="text-center">
+                        @*<td>@persona.Id</td>*@
+                        <td>@deporteItemVM.NombreDeporte</td>
+                        <td>@deporteItemVM.Cantidad</td>
+                        
+
+                    </tr>
+                }
+
+            </tbody>
+        </table>
+
+    </div>
+</div>
+

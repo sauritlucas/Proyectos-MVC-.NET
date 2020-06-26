@@ -1,0 +1,97 @@
+﻿@model SabadoMVX.ViewModels.Reportes.InfoGralVM
+
+@{
+    ViewBag.Title = "Reporte info General";
+}
+    <div class="row">
+        <div class="col-sm-12">
+            <div>
+                <h4>Informe General</h4>
+
+            </div>
+        </div>
+    </div>
+            
+    <div class="row">
+        <div class="col-lg-6">
+            <div class="col-sm-12">
+                <div>
+                    <h4>Personas Por sexo</h4>
+                </div>
+
+            </div>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        @*<th class="text-center"> Id</th>*@
+                        <th class="text-center"> Sexo</th>
+                        <th class="text-center"> Cantidad</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var sexo in Model.listaSexos)
+                    {
+                        <tr class="text-center">
+                            @*<td>@persona.Id</td>*@
+                            <td>@sexo.Nombre</td>
+                            <td>@sexo.Cantidad</td>
+
+
+                        </tr>
+                    }
+
+                </tbody>
+            </table>
+
+        </div>
+
+
+        <div class="col-lg-6">
+            <div class="col-sm-12">
+                <div>
+                    <h4>Listado de Personas</h4>
+                </div>
+
+            </div>
+            <table class="table table-bordered table-striped">
+                <thead>
+                    <tr>
+                        @*<th class="text-center"> Id</th>*@
+                        <th class="text-center"> Nombre</th>
+                        <th class="text-center"> Apellido</th>
+                        <th class="text-center"> Edad</th>
+                        <th class="text-center"> Teléfono</th>
+                        <th class="text-center"> Sexo</th>
+                        <th class="text-center"> Acciones</th>
+
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var persona in Model.listaPersonas)
+                    {
+                    <tr class="text-center">
+                        @*<td>@persona.Id</td>*@
+                        <td>@persona.Nombre</td>
+                        <td>@persona.Apellido</td>
+                        <td>@persona.Edad</td>
+                        <td>@persona.Telefono</td>
+                        <td>@persona.SexoNombre</td>
+                        <td>
+                            <a href="@Url.Action("DatosPersona", "Persona", new {@idPersona = persona.Id })" class="btn btn-warning">Mostrar</a>
+                            <a href="@Url.Action("EliminarPersona", "Persona", new {@idPersona = persona.Id })" class="btn btn-danger">Eliminar</a>
+                        </td>
+
+                    </tr>
+                    }
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+                
+
+
+        
+

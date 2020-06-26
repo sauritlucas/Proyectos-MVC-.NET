@@ -1,0 +1,68 @@
+﻿@model SabadoMVX.Models.Persona
+
+@{
+    ViewBag.Title = "Datos de Persona";
+
+    List<SelectListItem> items = (List<SelectListItem>)ViewBag.items;
+}
+    <div class="row">
+        <div class="col-sm-12">
+            <div>
+                <h4>Datos de la Persona @ViewBag.Nombre</h4>
+
+            </div>
+        </div>
+    </div>
+      @using (Html.BeginForm())
+          {
+            @Html.HiddenFor(Model=> Model.Id)
+            <div class="row">
+            <div class="col-lg-6">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-sm-6 control-label">Nombre</label>
+                        <div class="col-sm-6">
+                            @Html.TextBoxFor(Model => Model.Nombre, htmlAttributes: new { @class = "form-control", @id = "txtNombre" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-6 control-label">Apellido</label>
+                        <div class="col-sm-6">
+                            @Html.TextBoxFor(Model => Model.Apellido, htmlAttributes: new { @class = "form-control", @id = "txtApellido" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-6 control-label">Sexo</label>
+                        <div class="col-sm-6">
+                            @Html.DropDownList("IdSexo", items, "Seleccione Sexo", htmlAttributes: new { @class = "form-control" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-6 control-label">Telefono</label>
+                        <div class="col-sm-6">
+                            @Html.TextBoxFor(Model => Model.Telefono, htmlAttributes: new { @class = "form-control", @id = "txtTelefono" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-6 control-label">Edad</label>
+                        <div class="col-sm-6">
+                            @Html.TextBoxFor(Model => Model.Edad, htmlAttributes: new { @class = "form-control", @id = "txtEdad" })
+                        </div>
+                    </div>
+                </div>
+                    <div class="form-group text-right">
+                        <div class="col-xs-12">
+                            <button class="btn btn-primary" type="submit">
+                                Modificar
+                            </button>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        
+
+}
